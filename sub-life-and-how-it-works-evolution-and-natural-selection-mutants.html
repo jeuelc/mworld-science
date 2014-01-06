@@ -1,0 +1,189 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works-evolution-and-natural-selection-mutant">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>    
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Mutants</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+
+	  <!-- pol2 Quiz -->
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Evolution_And_Natural_Selection/Mutants/Dna_Mutation.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Evolution_And_Natural_Selection/Mutants/Dna_Mutation_Reverse.png) no-repeat;">
+              <div class="returncard" style="position:absolute;left:0px;top:0px;width:362px;height:170px;"></div>
+              <div id="trueans" style="position:absolute;left:90px;top:180px;width:70px;height:50px;"></div>
+              <div id="falseans" style="position:absolute;left:200px;top:180px;width:70px;height:50px;"></div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->	  		
+		
+		<!-- pol3 image -->
+        <a id="velociraptor" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Evolution_And_Natural_Selection/Mutants/Velociraptor_Hi_Res.jpg', 'The similarity between dinosaurs and modern birds is visible in the velociraptor, a small feathered dinosaur that lived in the Cretaceous Period.
+');">click here</a>
+		
+		<div id="zoomwrapper">
+			<!-- Read me -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Evolution_And_Natural_Selection/Mutants/What_Were_Mutants.png" alt="" />
+          </div>
+		  <!-- quiz -->
+          <div id="pol2" class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Evolution_And_Natural_Selection/Mutants/Dna_Mutation.png" alt="" />
+          </div>
+		  <!-- image card -->
+		  <div id="pol3" class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Evolution_And_Natural_Selection/Mutants/Velociraptor.png" alt="" />
+          </div>			  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontenthowlifeworks">
+		<p>DNA is like a blueprint for a machine that carries all the information needed to create a fully functioning organism.  In the process of creating new cells, DNA copies itself and the information it holds for the new cell.  This doesn't always go exactly to plan though!  On the odd occasion, during the copying process, DNA makes an error.  These errors, called mutations, can vary in their effects.  They can range from being as harmless as a skin blemish to the extremes of disease and physical abnormality.</p>
+
+		<p>In an evolutionary sense though, changes are often subtle, random and often take millions of years of tiny steps for one organism to evolve into another.  For example, today's birds are the descendants of dinosaurs that started growing feathers for warmth and display.  Eventually their feathered arms evolved to be stronger, which in turn assisted the first stages of flight!</p>
+      </div>
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstopmutants"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="mutantsaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="mutantsaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="mutantsaudiofbtn"></div></div>
+    <div id="actualaudio-mutants" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-mutants').html('<audio id="mutantsaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/Mutants.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works-evolution-and-natural-selection-mutant").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-life-and-how-it-works-evolution-and-natural-selection.html", {transition: "slide", reverse: true });
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopmutants").on('tap', function() {
+      if(!playing) {
+        mutantsaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        mutantsaudio.pause(); mutantsaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#mutantsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        mutantsaudio.pause();
+        paused = true;
+      } else {
+        mutantsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#mutantsaudiofbtn").on('tap', function() {
+      var ctime = mutantsaudio.currentTime;
+      mutantsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#mutantsaudiobbtn").on('tap', function() {
+      var ctime = mutantsaudio.currentTime;
+      mutantsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtnpsbtn").on('tap', function() {
+      mutantsaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+	//card on click js
+		//poll1
+		$("#pol1").on('tap', function() {
+		  $.mobile.changePage("sub-life-and-how-it-works-evolution-and-natural-selection-mutants-what-were-mutants.html", {transition: "slide"});
+		});		
+		
+		//poll2
+			$(".returncard").on('tap', function() {
+			  $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+			  $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+			  $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+			  $('#f1_card').css({"transform": "rotateY(0deg)"});
+			  setTimeout(function() {
+				$("#pol2").css({"visibility":"visible", "z-index":4});
+				$('#f1_container').css({"visibility":"hidden", "z-index":0});
+			  }, 1000);
+			});
+			
+			$("#pol2").on('tap', function() {
+			  $('#f1_container').css({"visibility":"visible", "z-index":10});
+			  $(this).css({"visibility":"hidden"});
+			  $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+			  $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+			  $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+			  $('#f1_card').css({"transform": "rotateY(180deg)"});
+			});	
+			$('#falseans').on('tap', function() {
+			  alert("Wrong answer");
+			});
+			$('#trueans').on('tap', function() {
+			  alert("Correct answer");
+			});			
+		//poll3		
+		$("#pol3").on('tap', function() {
+		  $('#velociraptor')[0].click();
+		});	
+	//card on click js ends here
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

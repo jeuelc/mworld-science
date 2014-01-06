@@ -1,0 +1,134 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works-how-did-life-begin">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>How Did Life Begin?</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navhowlifeworks-content">
+		<p>The origins of life are a fascinating mystery.  Most experts believe that 3.5 billion years ago, a 'primordial soup' of molecules was mixing and rearranging itself until  <i>POOF</i>, the first cells of life were created!  (Primordial means <b>really old</b>  from the beginning of time).  These single cells are known as 'prokaryotes' and they helped create life as we know it today by creating a new gas in the primitive atmosphere, oxygen.</p>
+		<p>The story of life's beginning may not be so simple though.  We may in fact be... aliens!  Yes, that's right, aliens.  Another theory, called 'panspermia', suggests that primitive life in the form of bacteria or other kinds of prokaryotes may have hitched a ride to Earth on an asteroid!	</p>
+      </div>
+        
+		  <div class="navbtn1">
+			<p><a href="sub-life-and-how-it-works-how-did-life-begin-primordial-soup.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/How_Did_Life_Begin/Primordial_Soup.png"></a></p>
+		  </div>
+		  <div class="navbtn2">
+			<p><a href="sub-life-and-how-it-works-how-did-life-begin-what-were-aliens.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/How_Did_Life_Begin/What_Were_Aliens.png"></a></p>
+		  </div>
+		  <div class="navbtn3">
+			<p><a href="sub-life-and-how-it-works-how-did-life-begin-the-first-living-cells.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/How_Did_Life_Begin/The_First_Living_Cells.png"></a></p>
+		  </div>
+		  <div class="navbtn4">
+			<p><a href="sub-life-and-how-it-works-how-did-life-begin-creation-of-o.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/How_Did_Life_Begin/The_Creation_Of_O.png"></a></p>
+		  </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstophowdidlifebegin"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="howdidlifebeginaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="howdidlifebeginaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="howdidlifebeginaudiofbtn"></div></div>
+    <div id="actualaudio-howdidlifebegin" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-howdidlifebegin').html('<audio id="howdidlifebeginaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/How_Did_Life_Begin.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works-how-did-life-begin").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-life-and-how-it-works.html", {transition: "slide", reverse: true });
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstophowdidlifebegin").on('tap', function() {
+      if(!playing) {
+        howdidlifebeginaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        howdidlifebeginaudio.pause(); howdidlifebeginaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#howdidlifebeginaudioplbtn").on('tap', function() {
+      if(!paused) {
+        howdidlifebeginaudio.pause();
+        paused = true;
+      } else {
+        howdidlifebeginaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#howdidlifebeginaudiofbtn").on('tap', function() {
+      var ctime = howdidlifebeginaudio.currentTime;
+      howdidlifebeginaudio.currentTime = ctime + 10;
+    });
+    
+    $("#howdidlifebeginaudiobbtn").on('tap', function() {
+      var ctime = howdidlifebeginaudio.currentTime;
+      howdidlifebeginaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtnpsbtn").on('tap', function() {
+      howdidlifebeginaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+	
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });	
+  </script>
+</div> <!--//home-->

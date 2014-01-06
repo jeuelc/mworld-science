@@ -1,0 +1,187 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works-how-did-life-begin-the-first-living-cells">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>The First Living Cells</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+
+	  <!-- pol1 Quiz -->
+		<!-- video -->
+		<!-- pol2 image -->
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/How_Did_Life_Begin/The_First_Living_Cells/Stromatolites_Close_Hi_Res.jpg', 'A close up view of a single \'stromatolite\'. These rocks are made up of particular type of prokaryotes called cyanobacteria.');">click here</a>		
+		<!-- pol3 image -->
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/How_Did_Life_Begin/The_First_Living_Cells/Stromatolites_Far_Hi_Res.jpg', 'A group of rocks called stromatolites in shallow water. Each stromatolite is actually millions of prokaryotes (the first living cells) clumped and living together.');">click here</a>
+		
+		<div id="zoomwrapper">
+			<!-- Read me -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/How_Did_Life_Begin/The_First_Living_Cells/Single_Cell_Wriggling_Life.png" alt="" />
+          </div>
+		  <!-- quiz -->
+          <div id="pol2" class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/How_Did_Life_Begin/The_First_Living_Cells/Stromatolites_Close.png" alt="" />
+          </div>
+		  <!-- image card -->
+		  <div id="pol3" class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/How_Did_Life_Begin/The_First_Living_Cells/Stromatolites_Far.png" alt="" />
+          </div>			  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontenthowlifeworks">
+			<p>The first living cells, the 'prokaryotes', arose from the primordial soup of the Earth's early lakes and oceans around 3.5 billion years ago.  They exploded in number and spread across the world with some still surviving today! </p>
+
+			<p>If you travel to Western Australia, you will find under the shallow water hundreds of small stacks that look like rocks.  These 'rocks' are called 'stromatolites' and are millions of prokaryotes called cyanobacteria living all clumped together as one.  To become a stromatolite, each cell joins with another and forms a slimy layer which traps sand and grit.  As they continue to grow, a new layer forms on top of the old one and the process continues.</p>
+
+			<p>Stromatolites are an incredibly important part of our history and without them most of life today would not be here.  Of the many groups of prokaryotes, they were the first to make oxygen gas!</p>
+
+      </div>
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstoplivingcells"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="livingcellsaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="livingcellsaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="livingcellsaudiofbtn"></div></div>
+    <div id="actualaudio-livingcells" style="visibility:hidden;"></div>
+  <!--</div>-->
+  
+    <div id="watchLavaFlowholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+		<video id="watchLavaFlow" width="1024" height="748" preload>
+		  <source src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/How_Did_Life_Begin/The_First_Living_Cells/The_First_Living_Cells.mpg" type="video/mp4">
+		</video>
+    </div>
+	
+	
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+	  $('#watchLavaFlowholder').css({"visibility":"hidden", "z-index":-10});
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-livingcells').html('<audio id="livingcellsaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/The_First_Living_Cells.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works-how-did-life-begin-the-first-living-cells").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+	
+	
+	  watchLavaFlow.addEventListener('ended', function() { 
+        $("#watchLavaFlowholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchLavaFlow").css({"z-index":-1});
+        bgsoundvol.play(); 
+      });
+    
+      $("#watchLavaFlow").on('tap', function() {
+        $("#watchLavaFlowholder").css({"visibility":"hidden", "z-index":-1});
+        $("#watchLavaFlow").css({"z-index":-1});
+        bgsoundvol.play();
+        watchLavaFlow.pause();
+        watchLavaFlow.currentTime = 0;
+      });
+	  
+	  
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-life-and-how-it-works-how-did-life-begin.html", {transition: "slide", reverse: true });
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstoplivingcells").on('tap', function() {
+      if(!playing) {
+        livingcellsaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        livingcellsaudio.pause(); livingcellsaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#livingcellsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        livingcellsaudio.pause();
+        paused = true;
+      } else {
+        livingcellsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#livingcellsaudiofbtn").on('tap', function() {
+      var ctime = livingcellsaudio.currentTime;
+      livingcellsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#livingcellsaudiobbtn").on('tap', function() {
+      var ctime = livingcellsaudio.currentTime;
+      livingcellsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtnpsbtn").on('tap', function() {
+      livingcellsaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+	//card on click js
+		//pol1			
+		$("#pol1").on('tap', function() {
+		  $("#watchLavaFlowholder").css({"visibility":"visible", "z-index":10});
+		  $("#watchLavaFlow").css({"z-index":9});
+		  bgsoundvol.pause();
+		  watchLavaFlow.play();
+		});
+			
+		//poll2	
+		$("#pol2").on('tap', function() {
+		  $('#img1')[0].click();
+		});	
+		
+		//poll3		
+		$("#pol3").on('tap', function() {
+		  $('#img2')[0].click();
+		});	
+	//card on click js ends here
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

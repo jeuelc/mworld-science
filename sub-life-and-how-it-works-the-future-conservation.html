@@ -1,0 +1,168 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works-the-future-conservation">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Conservation</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+		<!-- pol1 image -->
+        <a id="img1" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future/Conservation/Kruger_Hi_Res.jpg', 'The Kruger national park in Africa is an example of conservation in action! It is a wildlife reserve aiming to conserve and maintain the natural ecosystem that exists there.
+');">click here</a>			
+		<!-- pol2 image -->
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future/Conservation/Great_Barrier_Reef_Hi_Res.jpg', 'The Great Barrier Reef is a national park in Australia is the worlds largest coral reef system and one of the seven wonders of the natural world.
+');">click here</a>					
+
+		
+		<!-- pol3 image -->
+        <a id="img3" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future/Conservation/Yellowstone_Park_Hi_Res.jpg', 'Yellowstone national park in North America is another example of a conservation effort to protect and maintain the wonderful ecosystem that inhabits it.
+');">click here</a>		
+
+		
+		<div id="zoomwrapper">
+			<!-- image card -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future/Conservation/Kruger.png" alt="" />
+          </div>
+		  <!-- image card -->
+          <div id="pol2" class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future/Conservation/Great_Barrier_Reef.png" alt="" />
+          </div>
+		  <!-- image card -->
+		  <div id="pol3" class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future/Conservation/Yellowstone_Park.png" alt="" />
+          </div>		
+	  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontenthowlifeworks">
+		<p>The world is facing unprecedented change; the climate is warming faster than ever before and the ever-increasing population of humans is placing incredible stress on natural ecosystems.  Scientists estimate that species are becoming extinct 1000 to 10,000 times faster than naturally occurs!</p>
+
+			<p>But all is not lost!  Conservation efforts have resulted in wildlife reserves covering 10% of the entire planet, helping to restore, protect and maintain entire ecosystems.  Some amazing examples include the national parks of the world such as Kruger in Africa, the Great Barrier Reef in Australia and Yellowstone in North America.</p>
+
+			<p>Conservation is a powerful tool.  In relatively short periods, we've helped animals rebound from the brink of extinction.  In just over 40 years, we've brought the humpback whale from 10% to about 35% of its original population.  American bison numbers were only 750 a little over 110 years ago and are now at 350,000!  </p>
+			<p>What will you do to protect our world?</p>
+		</div>
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstopconservation"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="conservationaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="conservationaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="conservationaudiofbtn"></div></div>
+    <div id="actualaudio-conservation" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-conservation').html('<audio id="conservationaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/Conservation.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works-the-future-conservation").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-life-and-how-it-works-the-future.html", {transition: "slide", reverse: true });
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopconservation").on('tap', function() {
+      if(!playing) {
+        conservationaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        conservationaudio.pause(); conservationaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#conservationaudioplbtn").on('tap', function() {
+      if(!paused) {
+        conservationaudio.pause();
+        paused = true;
+      } else {
+        conservationaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#conservationaudiofbtn").on('tap', function() {
+      var ctime = conservationaudio.currentTime;
+      conservationaudio.currentTime = ctime + 10;
+    });
+    
+    $("#conservationaudiobbtn").on('tap', function() {
+      var ctime = conservationaudio.currentTime;
+      conservationaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtnpsbtn").on('tap', function() {
+      conservationaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+	//card on click js
+		//poll1
+		$("#pol1").on('tap', function() {
+		  $('#img1')[0].click();
+		});	
+		
+		//poll2		
+		$("#pol2").on('tap', function() {
+		  $('#img2')[0].click();
+		});	
+		
+		//poll3		
+		$("#pol3").on('tap', function() {
+		  $('#img3')[0].click();
+		});	
+		
+	//card on click js ends here
+
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

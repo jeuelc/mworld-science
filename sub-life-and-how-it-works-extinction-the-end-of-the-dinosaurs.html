@@ -1,0 +1,108 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works-extinction-the-end-of-the-dinosaurs">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>The End of the Dinosaurs</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navhowlifeworks-theendofthedinosaurs">
+		<p>Sixty-five million years ago, a dinosaur looked up and saw among the stars a giant fireball streaking across the sky.  Seconds later, an asteroid 10 kilometres wide slammed into Earth, creating a crater that today measures 180km wide and 10km deep!</p>
+
+		<p>As soon as Earth was hit, everything around for thousands of kilometres was instantly vaporised, and colossal earthquakes, tsunamis and volcanic eruptions beyond imagination circled the globe.  Superheated gases, rock and ash were thrown into the air.  Acid rain began to fall and rock and ash came returning to Earth as fireballs, destroying the majority of all plant life.  All the while, finer particles of dust and ash circled the globe, blocking out sunlight and triggering a sudden drop in global temperature.  With no plants, entire food webs collapsed, causing an estimated annihilation of 90% of life on Earth!</p>
+
+		<p>How would our world be different if dinosaurs hadnt become extinct?</p>
+
+      </div>     
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstoptheendofthedinosaurs"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="theendofthedinosaursaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="theendofthedinosaursaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="theendofthedinosaursaudiofbtn"></div></div>
+    <div id="actualaudio-theendofthedinosaurs" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-theendofthedinosaurs').html('<audio id="theendofthedinosaursaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/The_End_Of_The_Dinosaurs.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works-extinction-the-end-of-the-dinosaurs").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-life-and-how-it-works-extinction.html", {transition: "slide", reverse: true });
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstoptheendofthedinosaurs").on('tap', function() {
+      if(!playing) {
+        theendofthedinosaursaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        theendofthedinosaursaudio.pause(); theendofthedinosaursaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#theendofthedinosaursaudioplbtn").on('tap', function() {
+      if(!paused) {
+        theendofthedinosaursaudio.pause();
+        paused = true;
+      } else {
+        theendofthedinosaursaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#theendofthedinosaursaudiofbtn").on('tap', function() {
+      var ctime = theendofthedinosaursaudio.currentTime;
+      theendofthedinosaursaudio.currentTime = ctime + 10;
+    });
+    
+    $("#theendofthedinosaursaudiobbtn").on('tap', function() {
+      var ctime = theendofthedinosaursaudio.currentTime;
+      theendofthedinosaursaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtnpsbtn").on('tap', function() {
+      theendofthedinosaursaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div> <!--//home-->

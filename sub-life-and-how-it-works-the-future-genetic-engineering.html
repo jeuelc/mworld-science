@@ -1,0 +1,165 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works-the-future-genetic-engineering">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Genetic Engineering</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+		<!-- pol1 image -->
+			<!-- game time -->
+		<!-- pol2 image -->
+        <a id="img2" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future/Genetic_Engineering/Synthia_Hi_Res.jpg', 'Synthetic (mad-made) bacterium, magnified approximately 40,000 times! The first artificial life was a bacterium similar to this, called Synthia, and was created by genetic engineering.
+');">click here</a>					
+
+		
+		<!-- pol3 image -->
+        <a id="img3" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future/Genetic_Engineering/Corn_Hi_Res.jpg', 'Corn has been genetically engineered by scientist to increase its resistance to herbicides.  Other fruits and vegetables have also been modified to be bigger and tastier!
+');">click here</a>		
+
+		
+		<div id="zoomwrapper">
+			<!-- image card -->
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future/Genetic_Engineering/Mutant_Human_Dna.png" alt="" />
+          </div>
+		  <!-- image card -->
+          <div id="pol2" class="pPiece" style="left:75px;top:290px;">
+             <img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future/Genetic_Engineering/Synthia.png" alt="" />
+          </div>
+		  <!-- image card -->
+		  <div id="pol3" class="pPiece" style="left:80px;top:270px;">
+             <img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future/Genetic_Engineering/Corn.png" alt="" />
+          </div>		
+	  
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontenthowlifeworks">
+			<p>Never before has the direct manipulation of life and evolution been possible until the dawn of modern humans.  Early in our history we manipulated evolution by selectively breeding animals and plants for certain traits tailored to human needs.  However, only since the 1970s have humans been able to directly manipulate an organism's DNA.</p>
+
+			<p>The process is complex but basically, by injecting new pieces of DNA into a cell, we can change an organism in extraordinary ways.  We've engineered plants to be bigger and tastier and to resist herbicides; we've even made fish 'glow' with fluorescent colours!  Even more astonishing is that in 2010, 'Synthia', a bacterium, became the first form of artificial life created by genetic engineering!</p>
+
+			<p>The applications are endless and may help us cure diseases, make direct copies of ourselves or even bring extinct monsters of the past back to life!</p>
+
+		</div>
+		<div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+  </div><!--/spacechar-->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstopgeneticengineering"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="geneticengineeringaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="geneticengineeringaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="geneticengineeringaudiofbtn"></div></div>
+    <div id="actualaudio-geneticengineering" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      $('div#pol2').css("z-index", 2);
+      $('div#pol1').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-geneticengineering').html('<audio id="geneticengineeringaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/Genetic_Engineering.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works-the-future-genetic-engineering").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-life-and-how-it-works-the-future.html", {transition: "slide", reverse: true });
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopgeneticengineering").on('tap', function() {
+      if(!playing) {
+        geneticengineeringaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        geneticengineeringaudio.pause(); geneticengineeringaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#geneticengineeringaudioplbtn").on('tap', function() {
+      if(!paused) {
+        geneticengineeringaudio.pause();
+        paused = true;
+      } else {
+        geneticengineeringaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#geneticengineeringaudiofbtn").on('tap', function() {
+      var ctime = geneticengineeringaudio.currentTime;
+      geneticengineeringaudio.currentTime = ctime + 10;
+    });
+    
+    $("#geneticengineeringaudiobbtn").on('tap', function() {
+      var ctime = geneticengineeringaudio.currentTime;
+      geneticengineeringaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtnpsbtn").on('tap', function() {
+      geneticengineeringaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+	//card on click js
+		//poll1
+			//game time.
+		
+		//poll2		
+		$("#pol2").on('tap', function() {
+		  $('#img2')[0].click();
+		});	
+		
+		//poll3		
+		$("#pol3").on('tap', function() {
+		  $('#img3')[0].click();
+		});	
+		
+	//card on click js ends here
+
+  </script>
+  <script src="js/threecardLogic.js"></script>  <!-- for card dragging effects -->
+</div> <!--//home-->

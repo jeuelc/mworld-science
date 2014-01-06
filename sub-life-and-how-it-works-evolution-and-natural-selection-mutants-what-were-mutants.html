@@ -1,0 +1,108 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works-evolution-and-natural-selection-mutants-what-were-mutants">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>What!? We're Mutants!?</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navhowlifeworks-what-were-mutants">
+		<p>The human story begins in Africa six million years ago when the first known primates evolved to walk upright and became known as the 'hominins'.  As hominins became less reliant on trees for food and shelter, an upright posture on the ground helped them see approaching threats in the distance.
+		</p>
+		<p>Over the next few million years, the hominins evolved into several species and eventually began to move out of Africa and into Europe.  As human evolution continued, many species of hominins became extinct and those remaining, like the Neanderthals, began to look and behave in a similar fashion to us.  It wasnt until at least 150,000 years ago that our species (the only surviving species!), 'Homo sapiens', evolved and spread throughout the world.</p>
+
+		<p>The genetic difference between humans and chimps is only a little over 1%, so as you can see we're simply mutant apes!
+		</p>
+      </div>     
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstopwhatweremutants"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="whatweremutantsaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="whatweremutantsaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="whatweremutantsaudiofbtn"></div></div>
+    <div id="actualaudio-whatweremutants" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-whatweremutants').html('<audio id="whatweremutantsaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/What_Were_Mutants.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works-evolution-and-natural-selection-mutants-what-were-mutants").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-life-and-how-it-works-evolution-and-natural-selection-mutants.html", {transition: "slide", reverse: true });
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopwhatweremutants").on('tap', function() {
+      if(!playing) {
+        whatweremutantsaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        whatweremutantsaudio.pause(); whatweremutantsaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#whatweremutantsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        whatweremutantsaudio.pause();
+        paused = true;
+      } else {
+        whatweremutantsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#whatweremutantsaudiofbtn").on('tap', function() {
+      var ctime = whatweremutantsaudio.currentTime;
+      whatweremutantsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#whatweremutantsaudiobbtn").on('tap', function() {
+      var ctime = whatweremutantsaudio.currentTime;
+      whatweremutantsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtnpsbtn").on('tap', function() {
+      whatweremutantsaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div> <!--//home-->

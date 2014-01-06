@@ -1,0 +1,120 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works-the-future">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>The Future</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navhowlifeworks-content">
+		<p>What will life be like in the future?  Will people be here?  If so, what will we look like in one million years?  These questions are fascinating and the answers are limited only by your imagination!  We humans have an incredible ability to shape the future of life on Earth.  Our intense curiosity to understand the world around us and how it works gives us incredible power to change whole ecosystems.  Through the power of conservation, we can help protect and improve all kinds of life like never before.</p>
+		<p>With the dawn of genetics, our ever-advancing knowledge and technological power has, for the first time in the history of Earth, given humans the ability to directly manipulate life itself.  We can potentially create new organisms by directing evolution ourselves and maybe, one day, bring extinct animals back from the dead!</p>
+      </div>
+        
+     <div class="navseabtn1">
+		<p><a href="sub-life-and-how-it-works-the-future-conservation.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future/Conservation.png"></a></p>
+      </div>
+      <div class="navseabtn3">
+        <p><a href="sub-life-and-how-it-works-the-future-genetic-engineering.html" data-transition="slide" ><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future/Genetic_Engineering.png"></a></p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstopthefuture"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="thefutureaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="thefutureaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="thefutureaudiofbtn"></div></div>
+    <div id="actualaudio-thefuture" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-thefuture').html('<audio id="thefutureaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/The_Future.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works-the-future").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-life-and-how-it-works.html", {transition: "slide", reverse: true });
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopthefuture").on('tap', function() {
+      if(!playing) {
+        thefutureaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        thefutureaudio.pause(); thefutureaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#thefutureaudioplbtn").on('tap', function() {
+      if(!paused) {
+        thefutureaudio.pause();
+        paused = true;
+      } else {
+        thefutureaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#thefutureaudiofbtn").on('tap', function() {
+      var ctime = thefutureaudio.currentTime;
+      thefutureaudio.currentTime = ctime + 10;
+    });
+    
+    $("#thefutureaudiobbtn").on('tap', function() {
+      var ctime = thefutureaudio.currentTime;
+      thefutureaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtnpsbtn").on('tap', function() {
+      thefutureaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+	
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+  </script>
+</div> <!--//home-->

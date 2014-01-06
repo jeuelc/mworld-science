@@ -1,0 +1,124 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works-how-did-life-begin-primordial-soup">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Primordial Soup!</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navhowlifeworks-primordialsoup">
+			<p>The early Earth's atmosphere was made up of molecules which were combinations of carbon (C), hydrogen (H), nitrogen (N) and oxygen (O).</p>  
+
+			<p>The atmosphere was extremely hot, had no protection from the sun's <a href="#uvrays" data-rel="popup">UV rays</a> and had constant electrical storms far worse than anything we've ever seen!  Eventually, the energy from UV rays and the electricity allowed the molecules to react and form new, organic molecules such as the amino acids.</p> 
+			 
+			<p>Over millions of years, the Earth began to cool and water vapour condensed into rain, carrying the organic molecules with it.  The rain began filling up 'bowls' on Earth, creating warm 'soups'.  These primordial (really, really old!) soups became the first oceans and lakes where the amino acids accumulated.  They continued to mix until they formed chains of proteins, the building blocks of life.  Everything still continued to mix and the chains soon linked to form the first cells! </p>
+
+      </div>   
+		<div data-role="popup" id="uvrays" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+			<p>UV rays</p>
+			<p>UV stands for Ultra Violet. UV rays are part of the energy that comes from the sun but they're invisible to human eyes! See Light in Wonders of Science to find out more about UV rays.</p>
+			<div>  <div class="defspeaker"  id="uvrays"> </div></div>
+			</div>
+		</div>	  
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstopprimordialsoup"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="primordialsoupaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="primordialsoupaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="primordialsoupaudiofbtn"></div></div>
+    <div id="actualaudio-primordialsoup" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-primordialsoup').html('<audio id="primordialsoupaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/Primordial_Soup.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works-how-did-life-begin-primordial-soup").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-life-and-how-it-works-how-did-life-begin.html", {transition: "slide", reverse: true });
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopprimordialsoup").on('tap', function() {
+      if(!playing) {
+        primordialsoupaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        primordialsoupaudio.pause(); primordialsoupaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#primordialsoupaudioplbtn").on('tap', function() {
+      if(!paused) {
+        primordialsoupaudio.pause();
+        paused = true;
+      } else {
+        primordialsoupaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#primordialsoupaudiofbtn").on('tap', function() {
+      var ctime = primordialsoupaudio.currentTime;
+      primordialsoupaudio.currentTime = ctime + 10;
+    });
+    
+    $("#primordialsoupaudiobbtn").on('tap', function() {
+      var ctime = primordialsoupaudio.currentTime;
+      primordialsoupaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtnpsbtn").on('tap', function() {
+      primordialsoupaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+	
+	//Definations
+       $( "#uvrays" ).bind({
+          popupafterclose: function(event, ui) { 
+                 // apnoeaaudio.pause(); 
+           }
+        });
+	//Definations ends here	
+	
+  </script>
+</div> <!--//home-->

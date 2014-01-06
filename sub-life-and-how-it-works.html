@@ -1,0 +1,142 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Life and How it Works</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navhowlifeworks-content">
+		<p>Life.  What is it?  How did it begin?</p>
+
+		<p>Anything that can maintain itself, grow, respond to its environment and reproduce is life.  The very first forms of life appeared about 3.5 billion years ago!  They were tiny single-celled organisms called 'prokaryotes'.  These microorganisms multiplied all over the Earth and created oxygen gas to help support life as we know it today.</p>
+
+		<p>As the first cells started to evolve, all kinds of weird and wonderful forms of life appeared.  But life hasn't had an easy ride and it was nearly all wiped out five times!  The most famous extinction of all saw the dinosaurs vanish, paving the way for the rise of the mammal -us!</p>
+
+		<p>What will the future hold?  What will we look like in a million years?  Humans have evolved into incredible creatures and with new technology and genetic engineering, we may even bring back animals from the dead!</p>
+      </div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-life-and-how-it-works-how-did-life-begin.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/How_Did_Life_Begin.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-life-and-how-it-works-evolution-and-natural-selection.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Evolution_And_Natural_Selection.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-life-and-how-it-works-extinction.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Extinction.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-life-and-how-it-works-the-future.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/The_Future.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstophowlifeworks"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="howlifeworksaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="howlifeworksaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="howlifeworksaudiofbtn"></div></div>
+    <div id="actualaudio-howlifeworks" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-howlifeworks').html('<audio id="howlifeworksaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/Life_And_How_It_Works.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-wonderscience.html", {transition: "slide", reverse: true });
+      bgsoundhowlifeworks.pause(); 
+      bgsoundhowlifeworks.currentTime = 0;
+      sciencesoundbg.play();
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstophowlifeworks").on('tap', function() {
+      if(!playing) {
+        howlifeworksaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        howlifeworksaudio.pause(); howlifeworksaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#howlifeworksaudioplbtn").on('tap', function() {
+      if(!paused) {
+        howlifeworksaudio.pause();
+        paused = true;
+      } else {
+        howlifeworksaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#howlifeworksaudiofbtn").on('tap', function() {
+      var ctime = howlifeworksaudio.currentTime;
+      howlifeworksaudio.currentTime = ctime + 10;
+    });
+    
+    $("#howlifeworksaudiobbtn").on('tap', function() {
+      var ctime = howlifeworksaudio.currentTime;
+      howlifeworksaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtn").on('tap', function() {
+      howlifeworksaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });
+  </script>
+</div> <!--//home-->

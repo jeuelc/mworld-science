@@ -1,0 +1,135 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works-evolution-and-natural-selection">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Evolution and Natural Selection</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navhowlifeworks-content3">
+		<p>Life on Earth varies in size, shape, colour and function.  But if all life started from a common ancestor like a simple cell, how did everything become so different?</p>
+
+		<p>From a single cell to a dinosaur or a bird or an elephant, life underwent a process called evolution.  Evolution is a complex, random process of trial and error.  When an organisms DNA, (the blueprint for how it is made) undergoes mutation and makes a new design, the new design may or might not work.  If the new design works, the organism is likely to survive and be around for a lot longer.  This process is known as <a href="#natural" data-rel="popup">natural selection</a>.  
+		</p>
+		<p>These new designs use both the organism's environment and the others they interact with creating for example, near-invisible birds, trickster plants and frozen-alive frogs! </p>
+
+		<p>All life stems from a single ancestor and is a result of countless mutations... you could even say that were ALL mutants!</p>
+
+      </div>
+        
+      <div class="navevolutionandnaturalselectionbtn1" style="top: 420px;">
+        <p><a href="sub-life-and-how-it-works-evolution-and-natural-selection-dna.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Evolution_And_Natural_Selection/Dna.png"></a></p>
+      </div>
+      <div class="navevolutionandnaturalselectionbtn2" style="top: 449px;">
+        <p><a href="sub-life-and-how-it-works-evolution-and-natural-selection-evolving-to-live-together.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Evolution_And_Natural_Selection/Evolving_To_Live_Together.png"></a></p>
+      </div>
+      <div class="navevolutionandnaturalselectionbtn3" style="top: 420px;">
+        <p><a href="sub-life-and-how-it-works-evolution-and-natural-selection-mutants.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Evolution_And_Natural_Selection/Mutants.png"></a></p>
+      </div>
+		<div data-role="popup" id="natural" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+			<div id="node-pop">
+			<p>Natural Selection</p>
+			<p>Natural selection was introduced as part of the theory of evolution by Charles Darwin. Darwin was a natural historian, and first mentioned natural selection in his book 'On the Origin of Species', which was published in 1859.</p>
+			<div>  <div class="defspeaker"  id="natural"> </div></div>
+			</div>
+		</div>	  
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstopevolutionandnaturalselection"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="evolutionandnaturalselectionaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="evolutionandnaturalselectionaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="evolutionandnaturalselectionaudiofbtn"></div></div>
+    <div id="actualaudio-evolutionandnaturalselection" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-evolutionandnaturalselection').html('<audio id="evolutionandnaturalselectionaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/Evolution_And_Natural_Selection.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works-evolution-and-natural-selection").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-life-and-how-it-works.html", {transition: "slide", reverse: true });
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopevolutionandnaturalselection").on('tap', function() {
+      if(!playing) {
+        evolutionandnaturalselectionaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        evolutionandnaturalselectionaudio.pause(); evolutionandnaturalselectionaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#evolutionandnaturalselectionaudioplbtn").on('tap', function() {
+      if(!paused) {
+        evolutionandnaturalselectionaudio.pause();
+        paused = true;
+      } else {
+        evolutionandnaturalselectionaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#evolutionandnaturalselectionaudiofbtn").on('tap', function() {
+      var ctime = evolutionandnaturalselectionaudio.currentTime;
+      evolutionandnaturalselectionaudio.currentTime = ctime + 10;
+    });
+    
+    $("#evolutionandnaturalselectionaudiobbtn").on('tap', function() {
+      var ctime = evolutionandnaturalselectionaudio.currentTime;
+      evolutionandnaturalselectionaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtnpsbtn").on('tap', function() {
+      evolutionandnaturalselectionaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+//Definations
+       $( "#natural" ).bind({
+          popupafterclose: function(event, ui) { 
+                   
+           }
+        });
+	//Definations ends here	
+	
+  </script>
+</div> <!--//home-->

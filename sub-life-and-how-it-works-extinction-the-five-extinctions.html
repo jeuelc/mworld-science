@@ -1,0 +1,104 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works-extinction-the-five-extinctions">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>The Five Extinctions</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navhowlifeworks-thefiveextinctions">
+		<p>In Earth's history the five big extinction events are known as the mass extinctions of the Ordovician-Silurian (443 million years ago), the Late Devonian (359 million years ago), the Permian (248 million years ago), the Triassic-Jurassic (200 million years ago), and the most famous, the dinosaur-ending extinction of the Cretaceous Tertiary extinction event (65 million years ago).The most catastrophic of all these extinctions, though, was the Permian.  An estimated 96% of all life became extinct! Its unclear what single event caused any of the extinctions but theories include abrupt climate change, mass volcanic activity or even a collision with a meteor or comet.  The best example of what is currently believed to have caused a particular extinction is that of the dinosaurs, when 65 million years ago, a meteor slammed into the Yucatan Peninsula in Mexico, bringing the end of one world and the beginning of another.</p>
+
+      </div>     
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstopthefiveextinctions"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="thefiveextinctionsaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="thefiveextinctionsaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="thefiveextinctionsaudiofbtn"></div></div>
+    <div id="actualaudio-thefiveextinctions" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-thefiveextinctions').html('<audio id="thefiveextinctionsaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/The_Five_Extinctions.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works-extinction-the-five-extinctions").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-life-and-how-it-works-extinction.html", {transition: "slide", reverse: true });
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopthefiveextinctions").on('tap', function() {
+      if(!playing) {
+        thefiveextinctionsaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        thefiveextinctionsaudio.pause(); thefiveextinctionsaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#thefiveextinctionsaudioplbtn").on('tap', function() {
+      if(!paused) {
+        thefiveextinctionsaudio.pause();
+        paused = true;
+      } else {
+        thefiveextinctionsaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#thefiveextinctionsaudiofbtn").on('tap', function() {
+      var ctime = thefiveextinctionsaudio.currentTime;
+      thefiveextinctionsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#thefiveextinctionsaudiobbtn").on('tap', function() {
+      var ctime = thefiveextinctionsaudio.currentTime;
+      thefiveextinctionsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtnpsbtn").on('tap', function() {
+      thefiveextinctionsaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div> <!--//home-->

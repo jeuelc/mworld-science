@@ -1,0 +1,138 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works-extinction">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Extinction!</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navhowlifeworks-content">
+		<p>Life hasn't had an easy ride and there have been a few bumps along the way to say the least! </p> 
+
+		<p>All life on Earth was nearly obliterated five times since the beginning!  The most famous and recent of all was the extinction event of the Cretaceous Tertiary extinction event (65 million years ago) which saw the disappearance of the dinosaurs and paved the way for the modern life.  
+		</p>
+		<p>Despite the mass extinction events, there have been some ultimate survivors which still exist today.  For those that didn't survive, the gaps, or 'niches' as biologists like to say, that they created allowed new organisms to evolve and create the world anew.
+		</p>
+      </div>
+        
+      <div class="navbtn1">
+        <p><a href="sub-life-and-how-it-works-extinction-the-five-extinctions.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Extinction/The_Five_Extinctions.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-life-and-how-it-works-extinction-the-end-of-the-dinosaurs.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Extinction/The_End_Of_The_Dinosaurs.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-life-and-how-it-works-extinction-the-rise-of-the-mammals.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Extinction/The_Rise_Of_The_Mammals.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-life-and-how-it-works-extinction-ultimate-survivors.html" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/Life_And_How_It_Works/Extinction/Ultimate_Survivors.png"></a></p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstopextinction"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="extinctionaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="extinctionaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="extinctionaudiofbtn"></div></div>
+    <div id="actualaudio-extinction" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-extinction').html('<audio id="extinctionaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/Extinction.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works-extinction").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-life-and-how-it-works.html", {transition: "slide", reverse: true });
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopextinction").on('tap', function() {
+      if(!playing) {
+        extinctionaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        extinctionaudio.pause(); extinctionaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#extinctionaudioplbtn").on('tap', function() {
+      if(!paused) {
+        extinctionaudio.pause();
+        paused = true;
+      } else {
+        extinctionaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#extinctionaudiofbtn").on('tap', function() {
+      var ctime = extinctionaudio.currentTime;
+      extinctionaudio.currentTime = ctime + 10;
+    });
+    
+    $("#extinctionaudiobbtn").on('tap', function() {
+      var ctime = extinctionaudio.currentTime;
+      extinctionaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtnpsbtn").on('tap', function() {
+      extinctionaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+	
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
+    });	
+  </script>
+</div> <!--//home-->

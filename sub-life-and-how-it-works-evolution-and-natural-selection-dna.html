@@ -1,0 +1,109 @@
+<!-- i-C-a -->
+<div data-role="page" id="sub-life-and-how-it-works-evolution-and-natural-selection-dna">
+  <!-- <script src="js/slidebarnat.js"></script> -->
+  <script src="js/slidebar_life_and_how_it_works.js"></script>
+  <link rel="stylesheet" href="css/style_life_and_how_it_works.css" />
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnhowlifeworks"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnhowlifeworks"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnhowlifeworks"></div></div>
+  <div class="infobtnholder"><div class="infobtnhowlifeworks"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnhowlifeworks"></div></div>
+  <div class="menubtnholder"><div class="menubtnhowlifeworks"></div></div>
+  
+  <div class="bptitleholder" style="padding-top:14px;"><h1>DNA</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navhowlifeworks-dna">
+		<p>DNA is the blueprint for life.  It's the design for how an organism is built and functions.  Each piece of DNA looks like a twisted ladder - this is called a double helix chain.</p>
+
+		<p>In a cell, DNA is organised into long structures called 'chromosomes' and these carry all the genetic information of an organism.  These chromosomes carry information like your eye colour and can determine how much you look like either Mum or Dad.</p>
+		<p>When an organism passes on its DNA to the next generation, it can be by asexual or sexual reproduction.  Asexual means that there is no mixing of DNA from separate individuals and the offspring are an exact copy of their parent!  Sexual means that DNA is mixed from two individuals to create offspring with similar traits to their parents.</p>
+		<p>DNA can sometimes make mistakes - these are called mutations and its these subtle changes that can cause abnormalities and drive evolution.</p>
+
+
+      </div>     
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <!-- images are in slidebarnat.js -->
+    <div class="micbtnholder"><div class="micbtnhowlifeworks" id="playstopdna"></div></div>
+    <div class="bhowlifeworks"><div class="rwhowlifeworks" id="dnaaudiobbtn"></div></div>
+    <div class="plhowlifeworks"><div class="plpshowlifeworks" id="dnaaudioplbtn"></div></div>
+    <div class="fhowlifeworks"><div class="fwhowlifeworks" id="dnaaudiofbtn"></div></div>
+    <div id="actualaudio-dna" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+  // sound setup is in home.html and index.js
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    var paused;
+    (function() {
+      playing = false;
+      paused = true;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-dna').html('<audio id="dnaaudio" controls preload onpause="playshowlifeworks()" onplay="pausehowlifeworks()"><source src="audio/Life_And_How_It_Works/Dna.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sub-life-and-how-it-works-evolution-and-natural-selection-dna").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { bgsoundhowlifeworks.pause(); bgsoundhowlifeworks.currentTime = 0; mainaudiobg.play(); });
+    
+    function goBack() {
+      $.mobile.changePage("sub-life-and-how-it-works-evolution-and-natural-selection.html", {transition: "slide", reverse: true });
+    }
+    
+    function playshowlifeworks() {
+         bgsoundhowlifeworks.play();
+    }
+       
+    function pausehowlifeworks() {
+         bgsoundhowlifeworks.pause();
+    }
+    /* ******************** */
+    /* this is the microphone button */
+	
+    $("#playstopdna").on('tap', function() {
+      if(!playing) {
+        dnaaudio.play();
+        $('.micbtnhowlifeworks').css('background-position-x', '-81px');
+        playing = true;
+        paused = false;
+      } else {
+        dnaaudio.pause(); dnaaudio.currentTime = 0;
+        $('.micbtnhowlifeworks').css('background-position-x', '0px');
+        playing = false;
+        paused = true;
+      }
+    });
+    
+    $("#dnaaudioplbtn").on('tap', function() {
+      if(!paused) {
+        dnaaudio.pause();
+        paused = true;
+      } else {
+        dnaaudio.play();
+        paused = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#dnaaudiofbtn").on('tap', function() {
+      var ctime = dnaaudio.currentTime;
+      dnaaudio.currentTime = ctime + 10;
+    });
+    
+    $("#dnaaudiobbtn").on('tap', function() {
+      var ctime = dnaaudio.currentTime;
+      dnaaudio.currentTime = ctime - 10;
+    });
+    
+    $("#howlifeworksaudiopsbtnpsbtn").on('tap', function() {
+      dnaaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div> <!--//home-->
